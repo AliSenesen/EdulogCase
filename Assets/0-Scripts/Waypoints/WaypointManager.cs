@@ -1,3 +1,5 @@
+using System;
+using _0_Scripts.Events;
 using UnityEngine;
 
 namespace _0_Scripts.Waypoints
@@ -13,6 +15,28 @@ namespace _0_Scripts.Waypoints
             InitializeWaypoints();
         }
 
+        private void OnEnable()
+        {
+            SubscribeEvents();
+        }
+
+        private void SubscribeEvents()
+        {
+            WaypointEvents.onWaypointPassed += OnWaypointPassed;
+        }
+
+        private void UnSubscribeEvents()
+        {
+            WaypointEvents.onWaypointPassed -= OnWaypointPassed;
+        }
+
+
+        private void OnDisable()
+        {
+            UnSubscribeEvents();
+        }
+
+
         private void InitializeWaypoints()
         {
             for (int i = 0; i < wayPointObjects.Length; i++)
@@ -21,9 +45,20 @@ namespace _0_Scripts.Waypoints
             }
         }
 
-        public void SetNextWaypoint()
+        private void OnWaypointPassed()
         {
+            SetNextWaypoint();
+        }
+
+        private void SetNextWaypoint()
+        {
+            if (_currentIndex >= 0 && _currentIndex < wayPointObjects.Length)
+            {
+                wayPointObjects[_currentIndex].SetActive(false);
+            }
+
             _currentIndex++;
+         
             if (_currentIndex < wayPointObjects.Length)
             {
                 wayPointObjects[_currentIndex].SetActive(true);

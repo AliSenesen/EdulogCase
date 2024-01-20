@@ -600,7 +600,7 @@ Transform:
   - {fileID: 1086643587}
   - {fileID: 1612914830}
   - {fileID: 1058761132}
-  m_Father: {fileID: 1535027795}
+  m_Father: {fileID: 1611410670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1058761127
 PrefabInstance:
@@ -824,7 +824,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1778049093}
-  - {fileID: 1051046643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611410669
@@ -856,7 +855,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1051046643}
   m_Father: {fileID: 1103724734}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1611410671

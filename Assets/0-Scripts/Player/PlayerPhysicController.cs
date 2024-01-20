@@ -1,3 +1,4 @@
+using _0_Scripts.Events;
 using _0_Scripts.Waypoints;
 using Mirror;
 using UnityEngine;
@@ -10,9 +11,9 @@ namespace _0_Scripts.Player
         {
             if (isLocalPlayer)
             {
-                if (other.TryGetComponent(out WaypointController wayPoint))
+                if (other.CompareTag("Waypoint"))
                 {
-                    wayPoint.IsEnabled = false;
+                    WaypointEvents.onWaypointPassed?.Invoke();
                 }
             }
         }
